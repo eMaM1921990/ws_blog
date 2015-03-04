@@ -3,6 +3,7 @@ package com.api;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -51,5 +52,15 @@ public class JSONService {
  
 	}
 	
+	
+	@POST
+	@Path("/postclient")
+	@Consumes("application/json")
+	public Response createProductInJSON(Topic product) {
+ 
+		String result = "Product created : " + product;
+		return Response.status(201).entity(result).build();
+ 
+	}
 	
 }
