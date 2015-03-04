@@ -1,5 +1,9 @@
 package com.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "comment")
 public class TopicDetails {
 	private int idTOPICSDETAILS;
 	private String COMMENT;
@@ -14,7 +18,7 @@ public class TopicDetails {
 	public void setIdTOPICSDETAILS(int idTOPICSDETAILS) {
 		this.idTOPICSDETAILS = idTOPICSDETAILS;
 	}
-
+	@XmlElement
 	public String getCOMMENT() {
 		return COMMENT;
 	}

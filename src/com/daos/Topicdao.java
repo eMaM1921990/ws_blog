@@ -23,7 +23,7 @@ public class Topicdao implements dao<Topic> {
 			//db.pstm.setString(3, o.getCREATEDIN());
 			db.pstm.setString(2, o.getSUBJECT());
 			db.pstm.executeUpdate();
-			msg="Topic Saved";
+			msg="100";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

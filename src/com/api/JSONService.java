@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 
 import com.daos.Topicdao;
 import com.model.Topic;
+import com.model.TopicDetails;
 
 
 
@@ -31,10 +32,25 @@ public class JSONService {
 		t.setSUBJECT(subject);
 		Topicdao dao=new Topicdao();
 		String msg=dao.Presist(t);
+		t.setIdTOPICS(Integer.valueOf(msg));
 		
 		return t;
  
 	}
+	
+	
+	@GET
+	@Path("/subject/comment/{id}")
+	@Produces("application/xml")
+	public TopicDetails getComments(
+			@PathParam("id") String id) {
+			TopicDetails comment=new TopicDetails();
+			comment.setTOPICID(Integer.valueOf(id));
+			
+			
+			return comment;
+	 
+		}
 	
 	/*
 	@GET
