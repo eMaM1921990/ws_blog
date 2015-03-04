@@ -17,11 +17,11 @@ public class Topicdao implements dao<Topic> {
 		db.connect();
 		try {
 			db.pstm = db.con
-					.prepareStatement("INSERT INTO TOPICS (NAME,CREATEDBY,CREATEDIN,SUBJECT) VALUES (?,?,?,?)");
+					.prepareStatement("INSERT INTO Topic (NAME,SUBJECT) VALUES (?,?)");
 			db.pstm.setString(1, o.getNAME());
-			db.pstm.setString(2, o.getCREATEDBY());
-			db.pstm.setString(3, o.getCREATEDIN());
-			db.pstm.setString(4, o.getSUBJECT());
+			//db.pstm.setString(2, o.getCREATEDBY());
+			//db.pstm.setString(3, o.getCREATEDIN());
+			db.pstm.setString(2, o.getSUBJECT());
 			db.pstm.executeUpdate();
 			msg="Topic Saved";
 		} catch (SQLException e) {
@@ -42,7 +42,7 @@ public class Topicdao implements dao<Topic> {
 		List<Topic> data = new ArrayList<>();
 		db.connect();
 		try {
-			db.pstm = db.con.prepareStatement("SELECT * FROM TOPICS");
+			db.pstm = db.con.prepareStatement("SELECT * FROM Topic");
 			db.rs = db.pstm.executeQuery();
 			while (db.rs.next()) {
 				Topic t = new Topic();
