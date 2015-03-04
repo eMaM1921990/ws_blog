@@ -41,14 +41,39 @@ public class JSONService {
 	
 	@GET
 	@Path("/subject/comment/{id}")
-	@Produces("application/xml")
-	public TopicDetails getComments(
+	@Produces(MediaType.TEXT_XML)
+	public String getComments(
 			@PathParam("id") String id) {
 			TopicDetails comment=new TopicDetails();
 			comment.setTOPICID(Integer.valueOf(id));
 			
 			
-			return comment;
+			
+			return "<User>" + "<Name>" + id + "</Name>" +"<Name>" + id + "</Name>" + "</User>";
+	 
+		}
+	
+	
+	@GET
+	@Path("/subject/all")
+	@Produces(MediaType.TEXT_XML)
+	public String getAllSubject() {
+			Topicdao dao=new Topicdao();
+			List<Topic> data=dao.FindAll();
+			String response="<Topics>";
+			for(Topic s:data){
+				
+					response=response+"<Topic><name>"+s.getNAME()+"</name><sub>"+s.getSUBJECT()+"</sub></Topic>";
+				
+				
+			}
+			
+			response=response+"</Topics>";
+			
+			
+			
+			
+			return response;
 	 
 		}
 	
