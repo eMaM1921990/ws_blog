@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
 <title>Insert title here</title>
 </head>
 <body>
-<form action="api/user/add" method="post">
+<form action="PostClient" method="post">
 <input type="text" name="NAME" ><br>
 <textarea rows="10" cols="50" name="subject"></textarea> </br>
 <input type="submit" value="add">

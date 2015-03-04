@@ -20,24 +20,23 @@ import com.model.Topic;
 
 @Path("/user")
 public class JSONService {
-	@POST
-	@Path("/add")
-	public Response addUser(
-		@FormParam("NAME") String name,
-		@FormParam("subject") String subject) {
+	@GET
+	@Path("/add/{name}/{subject}")
+	@Produces("application/xml")
+	public Topic addDubject(
+		@PathParam("name") String name,
+		@PathParam("subject") String subject) {
 		Topic t=new Topic();
 		t.setNAME(name);
 		t.setSUBJECT(subject);
 		Topicdao dao=new Topicdao();
 		String msg=dao.Presist(t);
 		
-		return Response.status(200)
-			.entity("addUser is called, name : " + name + ", age : " + subject)
-			.build();
+		return t;
  
 	}
 	
-	
+	/*
 	@GET
 	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -51,9 +50,9 @@ public class JSONService {
 		return data;
  
 	}
+	*/
 	
-	
-	@POST
+	/*@POST
 	@Path("/postclient")
 	@Consumes("application/json")
 	public Response createProductInJSON(Topic product) {
@@ -61,6 +60,6 @@ public class JSONService {
 		String result = "Product created : " + product;
 		return Response.status(201).entity(result).build();
  
-	}
+	}*/
 	
 }

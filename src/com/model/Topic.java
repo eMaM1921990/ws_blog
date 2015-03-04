@@ -1,5 +1,9 @@
 package com.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "t")
 public class Topic {
 	private int idTOPICS;
 	private String NAME;
@@ -7,6 +11,7 @@ public class Topic {
 	private String CREATEDIN;
 	private String SUBJECT;
 
+	@XmlElement
 	public int getIdTOPICS() {
 		return idTOPICS;
 	}
@@ -14,7 +19,7 @@ public class Topic {
 	public void setIdTOPICS(int idTOPICS) {
 		this.idTOPICS = idTOPICS;
 	}
-
+	@XmlElement
 	public String getNAME() {
 		return NAME;
 	}
@@ -39,6 +44,7 @@ public class Topic {
 		CREATEDIN = cREATEDIN;
 	}
 
+	@XmlElement
 	public String getSUBJECT() {
 		return SUBJECT;
 	}
